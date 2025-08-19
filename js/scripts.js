@@ -24,6 +24,40 @@ $(function () {
 
     //init function
     function init() {
+        let con = document.querySelector(".console-img")
+            let bounds;
+
+            function rotateToMouse(e) {
+        const mouseX = e.clientX;
+        const mouseY = e.clientY;
+        const leftX = mouseX - bounds.x;
+        const topY = mouseY - bounds.y;
+        const center = {
+            x: leftX - bounds.width / 2,
+            y: topY - bounds.height / 2,
+        }
+        const distance = Math.sqrt(center.x ** 2 + center.y ** 2)
+
+        con.style.transform = `
+    rotate3d(
+      ${center.y / 100},
+      ${-center.x / 100},
+      0,
+      ${Math.log(distance) * 4}deg
+    )`;
+    }
+
+        con.addEventListener('mouseenter', () => {
+        bounds = con.getBoundingClientRect();
+        document.addEventListener('mousemove', rotateToMouse);
+    });
+
+    con.addEventListener('mouseleave', () => {
+        document.removeEventListener('mousemove', rotateToMouse);
+        con.style.transform = '';
+        con.style.background = '';
+    });
+
         var secondFeature = $('#features').offset().top;
         var scroll = $(window).scrollTop();
         if (scroll >= 150) {

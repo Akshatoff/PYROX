@@ -3259,7 +3259,6 @@ tbody.collapse.show {
     .card-columns .card {
       display: inline-block;
       width: 100%; } }
-
 .breadcrumb {
   display: -ms-flexbox;
   display: flex;
@@ -6671,4 +6670,18 @@ Pricing tables & lists
 
 h3 > a {
   color: var(--orange);
+}
+
+.hero-con {
+  perspective: 800px;
+    perspective-origin: center;
+}
+
+.hero-con > img {
+  transition-duration: 300ms;
+    transition-property: transform, box-shadow;
+    transition-timing-function: ease-out;
+    transform: rotate3d(0);
+    transform-style: preserve-3d;
+    transition: transform 0.1s ease-out;
 }
