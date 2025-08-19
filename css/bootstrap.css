@@ -6685,3 +6685,11 @@ h3 > a {
     transform-style: preserve-3d;
     transition: transform 0.1s ease-out;
 }
+
+.logo {
+  scale: 0.3;
+}
+
+.navbar {
+  top: -2rem;
+}
